@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .container
+    .hero-unit
+      h1 New Article
+      p(id='local_message')
+      form(method='POST' action='/articles/' + article.id)
+        .form-group.row
+          label(for='name').col-sm-2.col-form-label Header:
+          .col-sm-6
+            input#name.form-control.form-control-lg(type='text', placeholder='header' name='article[name]' value=article.name)
+        .form-group.row
+          label(for='author').col-sm-2.col-form-label Authors:
+          .col-sm-6
+            input#author.form-control.form-control-lg(type='text', placeholder='author' name='article[author]' value=article.author)
+        .form-group.row
+          label(for='keywords').col-sm-2.col-form-label Keywords:
+          .col-sm-6
+            input#keyword.form-control.form-control-lg(type='text', placeholder='keyword' name='article[keyword]' value=article.keyword)
+        .form-group.row
+          label(for='content').col-sm-2.col-form-label Content:
+        textarea#inhalt.trumbowyg(placeholder='content' name='article[inhalt]', rows=10)
+          =article.inhalt
+        button.btn.btn-primary(type='submit') Submit
+        &nbsp;
+        button.btn.btn-success(type='button', id='reset_button') Reset

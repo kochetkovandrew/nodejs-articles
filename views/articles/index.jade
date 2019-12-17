@@ -1,0 +1,31 @@
+extends layout
+
+
+block content
+  .container
+    .hero-unit
+      h1 Articles
+      a.btn(href="/articles/new") New Article
+      hr
+      table(id='articles_index',class='display')
+        thead
+          tr
+            th Name
+            th Authors
+            th Keywords
+            th
+        tbody
+          each article in articles
+            tr
+              td
+                a(href='/articles/' + article.id)
+                  =article.name
+              td
+                =article.author
+              td
+                =article.keyword
+              td
+                a.btn(href="/articles/" + article.id + ".html") HTML
+                a.btn(href="/articles/" + article.id + ".tex") TeX
+                a.btn(href="/articles/" + article.id + ".pdf") PDF
+                a(data-confirm="Are you sure?", data-method="delete", href="/articles/" + article.id, rel="nofollow") Delete

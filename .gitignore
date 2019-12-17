@@ -1,0 +1,7 @@
+/config.json
+/node_modules/*
+/bin/tmp/*
+!/bin/tmp/.keep
+/tmp/*
+!/tmp/.keep
+/.idea
